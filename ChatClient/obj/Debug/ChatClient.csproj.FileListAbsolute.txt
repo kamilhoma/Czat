@@ -1,0 +1,13 @@
+C:\Users\kamil\Desktop\Chat_application_using_WC_src\ChatApplication\ChatClient\obj\Debug\ChatClient.csprojResolveAssemblyReference.cache
+C:\Users\kamil\Desktop\Chat_application_using_WC_src\ChatApplication\ChatClient\obj\Debug\ChatClient.ChatClient.resources
+C:\Users\kamil\Desktop\Chat_application_using_WC_src\ChatApplication\ChatClient\obj\Debug\ChatClient.Properties.Resources.resources
+C:\Users\kamil\Desktop\Chat_application_using_WC_src\ChatApplication\ChatClient\obj\Debug\ChatClient.csproj.GenerateResource.Cache
+D:\projekty\ZPOczat\ChatApplication\ChatClient\bin\Debug\ChatClient.exe.config
+D:\projekty\ZPOczat\ChatApplication\ChatClient\bin\Debug\ChatClient.exe
+D:\projekty\ZPOczat\ChatApplication\ChatClient\bin\Debug\ChatClient.pdb
+D:\projekty\ZPOczat\ChatApplication\ChatClient\obj\Debug\ChatClient.csprojResolveAssemblyReference.cache
+D:\projekty\ZPOczat\ChatApplication\ChatClient\obj\Debug\ChatClient.ChatClient.resources
+D:\projekty\ZPOczat\ChatApplication\ChatClient\obj\Debug\ChatClient.Properties.Resources.resources
+D:\projekty\ZPOczat\ChatApplication\ChatClient\obj\Debug\ChatClient.csproj.GenerateResource.Cache
+D:\projekty\ZPOczat\ChatApplication\ChatClient\obj\Debug\ChatClient.exe
+D:\projekty\ZPOczat\ChatApplication\ChatClient\obj\Debug\ChatClient.pdb
