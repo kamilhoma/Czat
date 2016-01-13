@@ -28,38 +28,38 @@ namespace ChatServer
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnStart = new System.Windows.Forms.Button();
-            this.btnStop = new System.Windows.Forms.Button();
+            this.btnStartServer = new System.Windows.Forms.Button();
+            this.btnStopServer = new System.Windows.Forms.Button();
             this.grpServer = new System.Windows.Forms.GroupBox();
             this.lblMessage = new System.Windows.Forms.Label();
             this.grpServer.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnStart
+            // btnStartServer
             // 
-            this.btnStart.Location = new System.Drawing.Point(6, 19);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(107, 23);
-            this.btnStart.TabIndex = 0;
-            this.btnStart.Text = "&Uruchom serwer";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            this.btnStartServer.Location = new System.Drawing.Point(6, 19);
+            this.btnStartServer.Name = "btnStartServer";
+            this.btnStartServer.Size = new System.Drawing.Size(107, 23);
+            this.btnStartServer.TabIndex = 0;
+            this.btnStartServer.Text = "&Uruchom serwer";
+            this.btnStartServer.UseVisualStyleBackColor = true;
+            this.btnStartServer.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // btnStop
+            // btnStopServer
             // 
-            this.btnStop.Location = new System.Drawing.Point(131, 19);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(109, 23);
-            this.btnStop.TabIndex = 0;
-            this.btnStop.Text = "&Zatrzymaj serwer";
-            this.btnStop.UseVisualStyleBackColor = true;
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            this.btnStopServer.Location = new System.Drawing.Point(131, 19);
+            this.btnStopServer.Name = "btnStopServer";
+            this.btnStopServer.Size = new System.Drawing.Size(109, 23);
+            this.btnStopServer.TabIndex = 0;
+            this.btnStopServer.Text = "&Zatrzymaj serwer";
+            this.btnStopServer.UseVisualStyleBackColor = true;
+            this.btnStopServer.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // grpServer
             // 
             this.grpServer.Controls.Add(this.lblMessage);
-            this.grpServer.Controls.Add(this.btnStart);
-            this.grpServer.Controls.Add(this.btnStop);
+            this.grpServer.Controls.Add(this.btnStartServer);
+            this.grpServer.Controls.Add(this.btnStopServer);
             this.grpServer.Location = new System.Drawing.Point(12, 12);
             this.grpServer.Name = "grpServer";
             this.grpServer.Size = new System.Drawing.Size(246, 75);
@@ -93,8 +93,8 @@ namespace ChatServer
 
         #endregion
 
-        private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.Button btnStop;
+        private System.Windows.Forms.Button btnStartServer;
+        private System.Windows.Forms.Button btnStopServer;
         private System.Windows.Forms.GroupBox grpServer;
         private System.Windows.Forms.Label lblMessage;
     }

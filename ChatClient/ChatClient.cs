@@ -72,13 +72,13 @@ namespace ChatClient
                     status.Online += new EventHandler(Online);                    
                     channel.Open();                    
                     channel.Join(this.userName);
-                    grpMessageWindow.Enabled = true;
+                    grpWiadomosci.Enabled = true;
                     grpUserList.Enabled = true;                    
-                    grpUserCredentials.Enabled = false;                    
-                    this.AcceptButton = btnSend;
-                    rtbMessages.AppendText("***************************** Dzieñ dobry! *****************************\r\n");
-                    txtSendMessage.Select();
-                    txtSendMessage.Focus();
+                    grpLogowanie.Enabled = false;                    
+                    this.AcceptButton = btnWyslij;
+                    rtbWiadomosci.AppendText("***************************** Dzieñ dobry! *****************************\r\n");
+                    txtWyslijWiadomosc.Select();
+                    txtWyslijWiadomosc.Focus();
                 }
                 catch (Exception ex)
                 {
@@ -91,9 +91,9 @@ namespace ChatClient
         {
             try
             {
-                rtbMessages.AppendText("\r\n");
-                rtbMessages.AppendText(name + " opuœci³ czat o " + DateTime.Now.ToString());
-                lstUsers.Items.Remove(name);
+                rtbWiadomosci.AppendText("\r\n");
+                rtbWiadomosci.AppendText(name + " opuœci³ czat o " + DateTime.Now.ToString());
+                listaUserList.Items.Remove(name);
             }
             catch (Exception ex)
             {
@@ -103,29 +103,29 @@ namespace ChatClient
 
         void ChatClient_MessageSent(string name, string message)
         {
-            if (!lstUsers.Items.Contains(name))
+            if (!listaUserList.Items.Contains(name))
             {
-                lstUsers.Items.Add(name);
+                listaUserList.Items.Add(name);
             }
-            rtbMessages.AppendText("\r\n");
-            rtbMessages.AppendText(name + " mówi: " + message);
+            rtbWiadomosci.AppendText("\r\n");
+            rtbWiadomosci.AppendText(name + " mówi: " + message);
         }
 
         void ChatClient_NewJoin(string name)
         {
-            rtbMessages.AppendText("\r\n");
-            rtbMessages.AppendText(name + " do³¹czy³/a o [" + DateTime.Now.ToString() + "]");            
-            lstUsers.Items.Add(name);       
+            rtbWiadomosci.AppendText("\r\n");
+            rtbWiadomosci.AppendText(name + " do³¹czy³/a o [" + DateTime.Now.ToString() + "]");            
+            listaUserList.Items.Add(name);       
         }
 
         void Online(object sender, EventArgs e)
         {            
-            rtbMessages.AppendText("\r\nOnline: " + this.userName);
+            rtbWiadomosci.AppendText("\r\nOnline: " + this.userName);
         }
 
         void Offline(object sender, EventArgs e)
         {
-            rtbMessages.AppendText("\r\nOffline: " + this.userName);
+            rtbWiadomosci.AppendText("\r\nOffline: " + this.userName);
         }
 
         #region IChatService Members
@@ -158,10 +158,10 @@ namespace ChatClient
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            channel.SendMessage(this.userName, txtSendMessage.Text.Trim());
-            txtSendMessage.Clear();
-            txtSendMessage.Select();
-            txtSendMessage.Focus();
+            channel.SendMessage(this.userName, txtWyslijWiadomosc.Text.Trim());
+            txtWyslijWiadomosc.Clear();
+            txtWyslijWiadomosc.Select();
+            txtWyslijWiadomosc.Focus();
         }
 
         private void ChatClient_FormClosing(object sender, FormClosingEventArgs e)

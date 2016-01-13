@@ -19,7 +19,7 @@ namespace ChatServer
         public ChatServer()
         {
             InitializeComponent();            
-            btnStop.Enabled = false;
+            btnStopServer.Enabled = false;
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -40,8 +40,8 @@ namespace ChatServer
             }
             finally
             {
-                btnStart.Enabled = false;
-                btnStop.Enabled = true;
+                btnStartServer.Enabled = false;
+                btnStopServer.Enabled = true;
             }
         }
 
@@ -59,8 +59,8 @@ namespace ChatServer
             }
             finally
             {
-                btnStart.Enabled = true;
-                btnStop.Enabled = false;
+                btnStartServer.Enabled = true;
+                btnStopServer.Enabled = false;
             }
         }
     }
