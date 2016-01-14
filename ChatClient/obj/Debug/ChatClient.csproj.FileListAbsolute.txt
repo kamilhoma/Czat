@@ -11,3 +11,12 @@ D:\projekty\ZPOczat\ChatApplication\ChatClient\obj\Debug\ChatClient.Properties.R
 D:\projekty\ZPOczat\ChatApplication\ChatClient\obj\Debug\ChatClient.csproj.GenerateResource.Cache
 D:\projekty\ZPOczat\ChatApplication\ChatClient\obj\Debug\ChatClient.exe
 D:\projekty\ZPOczat\ChatApplication\ChatClient\obj\Debug\ChatClient.pdb
+D:\projekty\Repos\Czat\ChatClient\obj\Debug\ChatClient.csprojResolveAssemblyReference.cache
+D:\projekty\Repos\Czat\ChatClient\obj\Debug\ChatClient.ChatClient.resources
+D:\projekty\Repos\Czat\ChatClient\obj\Debug\ChatClient.Properties.Resources.resources
+D:\projekty\Repos\Czat\ChatClient\obj\Debug\ChatClient.csproj.GenerateResource.Cache
+D:\projekty\Repos\Czat\ChatClient\obj\Debug\ChatClient.exe
+D:\projekty\Repos\Czat\ChatClient\obj\Debug\ChatClient.pdb
+D:\projekty\Repos\Czat\ChatClient\bin\Debug\ChatClient.exe.config
+D:\projekty\Repos\Czat\ChatClient\bin\Debug\ChatClient.exe
+D:\projekty\Repos\Czat\ChatClient\bin\Debug\ChatClient.pdb

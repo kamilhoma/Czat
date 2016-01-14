@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
+using System.IO;
 
 namespace ChatClient
 {
@@ -39,6 +40,7 @@ namespace ChatClient
         private IChatChannel channel;
         private DuplexChannelFactory<IChatChannel> factory;
 
+
         public ChatClient()
         {
             InitializeComponent();
@@ -52,7 +54,7 @@ namespace ChatClient
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtUserName.Text.Trim()))
+            if (!string.IsNullOrEmpty(txtUserName.Text.Trim()) && !checkUsersFromList(txtUserName.Text))
             {
                 try
                 {
@@ -68,17 +70,19 @@ namespace ChatClient
                         new DuplexChannelFactory<IChatChannel>(context, "ChatEndPoint");
                     channel = factory.CreateChannel();
                     IOnlineStatus status = channel.GetProperty<IOnlineStatus>();
-                    status.Offline += new EventHandler(Offline);
-                    status.Online += new EventHandler(Online);                    
-                    channel.Open();                    
+
+                    //status.Offline += new EventHandler(Offline);
+                    //status.Online += new EventHandler(Online);                    
+                    channel.Open();                  
                     channel.Join(this.userName);
                     grpWiadomosci.Enabled = true;
                     grpUserList.Enabled = true;                    
                     grpLogowanie.Enabled = false;                    
                     this.AcceptButton = btnWyslij;
-                    rtbWiadomosci.AppendText("***************************** Dzieñ dobry! *****************************\r\n");
-                    txtWyslijWiadomosc.Select();
-                    txtWyslijWiadomosc.Focus();
+                    rtbOknoRozmowy.AppendText("***************************** Dzieñ dobry! *****************************\r\n");
+                    textBoxWiadomosc.Select();
+                    textBoxWiadomosc.Focus();
+                    AddToUserList();
                 }
                 catch (Exception ex)
                 {
@@ -91,9 +95,10 @@ namespace ChatClient
         {
             try
             {
-                rtbWiadomosci.AppendText("\r\n");
-                rtbWiadomosci.AppendText(name + " opuœci³ czat o " + DateTime.Now.ToString());
+                rtbOknoRozmowy.AppendText("\r\n");
+                rtbOknoRozmowy.AppendText(name + " opuœci³ czat o " + DateTime.Now.ToString());
                 listaUserList.Items.Remove(name);
+                RemoveFromUserList(name);
             }
             catch (Exception ex)
             {
@@ -105,27 +110,29 @@ namespace ChatClient
         {
             if (!listaUserList.Items.Contains(name))
             {
-                listaUserList.Items.Add(name);
+                //listaUserList.Items.Add(name);
+                ReadUserList();
             }
-            rtbWiadomosci.AppendText("\r\n");
-            rtbWiadomosci.AppendText(name + " mówi: " + message);
+            rtbOknoRozmowy.AppendText("\r\n");
+            rtbOknoRozmowy.AppendText(name + " mówi: " + message);
         }
 
         void ChatClient_NewJoin(string name)
         {
-            rtbWiadomosci.AppendText("\r\n");
-            rtbWiadomosci.AppendText(name + " do³¹czy³/a o [" + DateTime.Now.ToString() + "]");            
-            listaUserList.Items.Add(name);       
+            rtbOknoRozmowy.AppendText("\r\n");
+            rtbOknoRozmowy.AppendText(name + " do³¹czy³/a o [" + DateTime.Now.ToString() + "]");
+            //listaUserList.Items.Add(name);
+            ReadUserList();
         }
 
         void Online(object sender, EventArgs e)
         {            
-            rtbWiadomosci.AppendText("\r\nOnline: " + this.userName);
+            rtbOknoRozmowy.AppendText("\r\nOnline: " + this.userName);
         }
 
         void Offline(object sender, EventArgs e)
         {
-            rtbWiadomosci.AppendText("\r\nOffline: " + this.userName);
+            rtbOknoRozmowy.AppendText("\r\nOffline: " + this.userName);
         }
 
         #region IChatService Members
@@ -158,10 +165,13 @@ namespace ChatClient
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            channel.SendMessage(this.userName, txtWyslijWiadomosc.Text.Trim());
-            txtWyslijWiadomosc.Clear();
-            txtWyslijWiadomosc.Select();
-            txtWyslijWiadomosc.Focus();
+            if (textBoxWiadomosc.TextLength > 0)
+            {
+                channel.SendMessage(this.userName, textBoxWiadomosc.Text.Trim());
+            }
+            textBoxWiadomosc.Clear();
+            textBoxWiadomosc.Select();
+            textBoxWiadomosc.Focus();
         }
 
         private void ChatClient_FormClosing(object sender, FormClosingEventArgs e)
@@ -182,6 +192,67 @@ namespace ChatClient
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        public void ReadUserList()
+        {
+            int counter = 0;
+            string line;
+            listaUserList.Items.Clear();
+
+            System.IO.StreamReader file =
+               new System.IO.StreamReader(@"C:\Users\kamil\Desktop\s\userlist.txt");
+            while ((line = file.ReadLine()) != null)
+            {
+                listaUserList.Items.Add(line);
+                counter++;
+            }
+
+            file.Close();
+        }
+
+        public void AddToUserList()
+        {
+            StreamWriter file = File.AppendText(@"C:\Users\kamil\Desktop\s\userlist.txt");
+            file.WriteLine(userName);
+            file.Close();
+        }
+
+        public void RemoveFromUserList(string strLineToDelete)
+        {
+            string strFilePath = @"C:\Users\kamil\Desktop\s\userlist.txt";
+            string strSearchText = strLineToDelete;
+            string strOldText;
+            string n = "";
+            StreamReader sr = File.OpenText(strFilePath);
+            while ((strOldText = sr.ReadLine()) != null)
+            {
+                if (!strOldText.Contains(strSearchText))
+                {
+                    n += strOldText + Environment.NewLine;
+                }
+            }
+            sr.Close();
+            File.WriteAllText(strFilePath, n);
+        }
+
+        public bool checkUsersFromList(string username)
+        {
+            string strFilePath = @"C:\Users\kamil\Desktop\s\userlist.txt";
+            string strSearchText = username;
+            string strOldText;
+            StreamReader sr = File.OpenText(strFilePath);
+            while ((strOldText = sr.ReadLine()) != null)
+            {
+                if (strOldText.Contains(strSearchText))
+                {
+                    MessageBox.Show("Nazwa uzytkownika jest zajêta.\nWybierz inn¹.");
+                    return true;
+                }
+            }
+            sr.Close();
+
+            return false;
         }
     }
 }

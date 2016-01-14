@@ -18,3 +18,9 @@ D:\projekty\Repos\Czat\ChatApplication\ChatServer\obj\Debug\ChatServer.pdb
 D:\projekty\Repos\Czat\ChatServer\bin\Debug\ChatServer.exe.config
 D:\projekty\Repos\Czat\ChatServer\obj\Debug\ChatServer.exe
 D:\projekty\Repos\Czat\ChatServer\obj\Debug\ChatServer.pdb
+D:\projekty\Repos\Czat\ChatServer\bin\Debug\ChatServer.exe
+D:\projekty\Repos\Czat\ChatServer\bin\Debug\ChatServer.pdb
+D:\projekty\Repos\Czat\ChatServer\obj\Debug\ChatServer.csprojResolveAssemblyReference.cache
+D:\projekty\Repos\Czat\ChatServer\obj\Debug\ChatServer.ChatServer.resources
+D:\projekty\Repos\Czat\ChatServer\obj\Debug\ChatServer.Properties.Resources.resources
+D:\projekty\Repos\Czat\ChatServer\obj\Debug\ChatServer.csproj.GenerateResource.Cache

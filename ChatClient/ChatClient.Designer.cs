@@ -30,8 +30,8 @@ namespace ChatClient
         {
             this.grpWiadomosci = new System.Windows.Forms.GroupBox();
             this.btnWyslij = new System.Windows.Forms.Button();
-            this.txtWyslijWiadomosc = new System.Windows.Forms.TextBox();
-            this.rtbWiadomosci = new System.Windows.Forms.RichTextBox();
+            this.textBoxWiadomosc = new System.Windows.Forms.TextBox();
+            this.rtbOknoRozmowy = new System.Windows.Forms.RichTextBox();
             this.grpLogowanie = new System.Windows.Forms.GroupBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtUserName = new System.Windows.Forms.TextBox();
@@ -46,8 +46,8 @@ namespace ChatClient
             // grpWiadomosci
             // 
             this.grpWiadomosci.Controls.Add(this.btnWyslij);
-            this.grpWiadomosci.Controls.Add(this.txtWyslijWiadomosc);
-            this.grpWiadomosci.Controls.Add(this.rtbWiadomosci);
+            this.grpWiadomosci.Controls.Add(this.textBoxWiadomosc);
+            this.grpWiadomosci.Controls.Add(this.rtbOknoRozmowy);
             this.grpWiadomosci.Enabled = false;
             this.grpWiadomosci.Location = new System.Drawing.Point(12, 71);
             this.grpWiadomosci.Name = "grpWiadomosci";
@@ -66,22 +66,22 @@ namespace ChatClient
             this.btnWyslij.UseVisualStyleBackColor = true;
             this.btnWyslij.Click += new System.EventHandler(this.btnSend_Click);
             // 
-            // txtWyslijWiadomosc
+            // textBoxWiadomosc
             // 
-            this.txtWyslijWiadomosc.Location = new System.Drawing.Point(9, 235);
-            this.txtWyslijWiadomosc.Multiline = true;
-            this.txtWyslijWiadomosc.Name = "txtWyslijWiadomosc";
-            this.txtWyslijWiadomosc.Size = new System.Drawing.Size(408, 55);
-            this.txtWyslijWiadomosc.TabIndex = 1;
+            this.textBoxWiadomosc.Location = new System.Drawing.Point(9, 235);
+            this.textBoxWiadomosc.Multiline = true;
+            this.textBoxWiadomosc.Name = "textBoxWiadomosc";
+            this.textBoxWiadomosc.Size = new System.Drawing.Size(408, 55);
+            this.textBoxWiadomosc.TabIndex = 1;
             // 
-            // rtbWiadomosci
+            // rtbOknoRozmowy
             // 
-            this.rtbWiadomosci.Location = new System.Drawing.Point(9, 33);
-            this.rtbWiadomosci.Name = "rtbWiadomosci";
-            this.rtbWiadomosci.ReadOnly = true;
-            this.rtbWiadomosci.Size = new System.Drawing.Size(501, 190);
-            this.rtbWiadomosci.TabIndex = 0;
-            this.rtbWiadomosci.Text = "";
+            this.rtbOknoRozmowy.Location = new System.Drawing.Point(9, 33);
+            this.rtbOknoRozmowy.Name = "rtbOknoRozmowy";
+            this.rtbOknoRozmowy.ReadOnly = true;
+            this.rtbOknoRozmowy.Size = new System.Drawing.Size(501, 190);
+            this.rtbOknoRozmowy.TabIndex = 0;
+            this.rtbOknoRozmowy.Text = "";
             // 
             // grpLogowanie
             // 
@@ -90,14 +90,14 @@ namespace ChatClient
             this.grpLogowanie.Controls.Add(this.lblLoginName);
             this.grpLogowanie.Location = new System.Drawing.Point(12, 25);
             this.grpLogowanie.Name = "grpLogowanie";
-            this.grpLogowanie.Size = new System.Drawing.Size(339, 40);
+            this.grpLogowanie.Size = new System.Drawing.Size(516, 40);
             this.grpLogowanie.TabIndex = 1;
             this.grpLogowanie.TabStop = false;
             this.grpLogowanie.Text = "Logowanie";
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(258, 11);
+            this.btnLogin.Location = new System.Drawing.Point(435, 9);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 2;
@@ -107,10 +107,10 @@ namespace ChatClient
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(77, 12);
+            this.txtUserName.Location = new System.Drawing.Point(114, 11);
             this.txtUserName.MaxLength = 10;
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(158, 20);
+            this.txtUserName.Size = new System.Drawing.Size(303, 20);
             this.txtUserName.TabIndex = 1;
             // 
             // lblLoginName
@@ -171,9 +171,9 @@ namespace ChatClient
         private System.Windows.Forms.Label lblLoginName;
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.RichTextBox rtbWiadomosci;
+        private System.Windows.Forms.RichTextBox rtbOknoRozmowy;
         private System.Windows.Forms.Button btnWyslij;
-        private System.Windows.Forms.TextBox txtWyslijWiadomosc;
+        private System.Windows.Forms.TextBox textBoxWiadomosc;
         private System.Windows.Forms.ListBox listaUserList;
     }
 }
