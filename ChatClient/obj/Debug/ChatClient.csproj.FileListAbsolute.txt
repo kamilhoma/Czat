@@ -20,3 +20,5 @@ D:\projekty\Repos\Czat\ChatClient\obj\Debug\ChatClient.pdb
 D:\projekty\Repos\Czat\ChatClient\bin\Debug\ChatClient.exe.config
 D:\projekty\Repos\Czat\ChatClient\bin\Debug\ChatClient.exe
 D:\projekty\Repos\Czat\ChatClient\bin\Debug\ChatClient.pdb
+D:\projekty\Repos\Czat\ChatClient\obj\Debug\ChatClient.LoginForm.resources
+D:\projekty\Repos\Czat\ChatClient\obj\Debug\ChatClient.Chat.resources

@@ -63,7 +63,8 @@ namespace ChatClient
                     RemoveUser += new UserLeft(ChatClient_RemoveUser);
 
                     channel = null;
-                    this.userName = txtUserName.Text.Trim();
+                    //this.userName = txtUserName.Text.Trim();
+
                     InstanceContext context = new InstanceContext(
                         new ChatClient(txtUserName.Text.Trim()));
                     factory =
